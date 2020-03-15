@@ -1,8 +1,3 @@
 Eric Jankowski ericjankowski@boisestate.edu
 Sam Piraino sampiraino@u.boisestate.edu
-<<<<<<< HEAD
 Jenny Fothergill jennyfothergill@gmail.com
-=======
-
-test
->>>>>>> 5004b571d4b41a06d62fd0cbcb38d223cc2e873f
