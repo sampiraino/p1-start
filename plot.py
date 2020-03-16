@@ -3,8 +3,13 @@ import numpy as np
 import sys
 
 filename = sys.argv[1]        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
-data = np.loadtxt(filename)   # Attempts to load filename into local variable data.
-exit()
+data = np.loadtxt(filename, delimiter=",",usecols=(3,7) )  # Attempts to load filename into local variable data.
+y_data=data[:,0]
+x_data=[:,1]
+y_data_pos=(y_data*-1)
+x_data_pos=(x_data*-1)
+print(x_data_pos)
+print(y_data_pos)
 ## Part 0
 # Figure out what arguments to add to the loadtxt function call
 # so that numbers are loaded into the local function 'data'.
@@ -13,6 +18,14 @@ exit()
 #   $ python plot.py raw-data/Sp15_245L_sect-001_group-1_glass.raw
 # at the command line.
 
+# stress/strain plots
+plt.plot(filename[1], filename[3],"k-", linestyle='solid')
+#plot title("Stress/Strain of " + material)
+plt.xlabel("Strain")
+plt.ylabel('Stress (Pa)')
+plt.grid(True)
+#plt.legend(loc="best")
+plt.show()
 
 ## Part 1
 # Figure out what columns and rows of data we need to plot
