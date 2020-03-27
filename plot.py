@@ -3,13 +3,7 @@ import numpy as np
 import sys
 
 filename = sys.argv[1]        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
-data = np.loadtxt(filename, delimiter=",",usecols=(3,7) )  # Attempts to load filename into local variable data.
-y_data=data[:,0]
-x_data=[:,1]
-y_data_pos=(y_data*-1)
-x_data_pos=(x_data*-1)
-print(x_data_pos)
-print(y_data_pos)
+data = np.loadtxt(filename, delimiter=",")  # Attempts to load filename into local variable data.
 ## Part 0
 # Figure out what arguments to add to the loadtxt function call
 # so that numbers are loaded into the local function 'data'.
@@ -19,13 +13,16 @@ print(y_data_pos)
 # at the command line.
 
 # stress/strain plots
-plt.plot(filename[1], filename[3],"k-", linestyle='solid')
 #plot title("Stress/Strain of " + material)
-plt.xlabel("Strain")
-plt.ylabel('Stress (Pa)')
-plt.grid(True)
 #plt.legend(loc="best")
-plt.show()
+stress=data[:,3]
+strain=data[:,7]
+plt.plot(strain, stress)
+plt.xlabel("Strain [Exten.] %")
+plt.ylabel("Stress MPa")
+plt.xlim((min(strain), max(strain)))
+#plt.savefig("fig.png", pad_inches=0.5)
+
 
 ## Part 1
 # Figure out what columns and rows of data we need to plot
@@ -46,7 +43,13 @@ plt.show()
 # sure it makes sense! Use the slope of this line to calculate and print
 # the Young's modulus (with units!)
 
+#Young's Modulus: plotting
+m1,b1=np.polyfit(strain,stress,1)
+reg=b1+m1*strain
+linearf=np.poly1d(m1,b1)
+plt.plot(strain,reg,"r--",linestyle='dashed',linewidth=3,label="Young's Modulus")
 
+plt.show()
 ## Part 4
 # Modify your code to save your plots to a file and see if you can generate
 # plots and Young's moduli for all of the cleaned up files in your data 
