@@ -48,8 +48,19 @@ m1,b1=np.polyfit(strain,stress,1)
 reg=b1+m1*strain
 linearf=np.poly1d(m1,b1)
 plt.plot(strain,reg,"r--",linestyle='dashed',linewidth=3,label="Young's Modulus")
-
+print("Young's Modulus for ",end="")
+print(filename,end="")
+print(" is ", end="")
+slope=str(round(m1,2))
+print(slope,end="")
+print(" MPa")
+plt.legend(loc='best')
 plt.show()
+
+
+
+
+
 ## Part 4
 # Modify your code to save your plots to a file and see if you can generate
 # plots and Young's moduli for all of the cleaned up files in your data 
