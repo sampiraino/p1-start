@@ -5,7 +5,7 @@
 This project requires the use of the Linux based bascottie BSU computers which have been used remotely through Cisco AnyConnect VPN software. The terminal used was MobaXterm in which matplotlib and numpy files were used
 
 *How to git it *How to run it, 
-The adjusted data can be run through python program in the terminal
+The adjusted data can be run through python program in the terminal. The adjusted data is in the following format: (material)_(trial #)_..etc....
 
 *An example of how to run the code, and what the user should expect
 python plot.py raw data/(individual data files)
