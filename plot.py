@@ -21,7 +21,7 @@ plt.plot(strain, stress)
 plt.xlabel("Strain [Exten.] %")
 plt.ylabel("Stress MPa")
 plt.xlim((min(strain), max(strain)))
-#plt.savefig("fig.png", pad_inches=0.5)
+
 
 
 ## Part 1
@@ -55,6 +55,7 @@ slope=str(round(m1,2))
 print(slope,end="")
 print(" MPa")
 plt.legend(loc='best')
+plt.savefig("fig.png", pad_inches=0.5)
 plt.show()
 
 
